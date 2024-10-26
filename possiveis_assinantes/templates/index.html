@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leontis - Pesquisa de usuário</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="../static/script.js" defer></script>
+</head>
+<body>
+    <div class="form-container">
+        <div class="img">
+            <img src="../static/img/Group 39 (1).png" alt="Imagem do App Leontis">
+        </div>
+        <div class="titulo">
+            <h1>Nos ajude com uma pesquisa para melhorar o nosso app</h1>
+        </div>
+
+        <form id='form' action="/interesse_em_arte" method="post">
+            <div class="pergunta">
+                <label for="idade">Em qual faixa etária você se encaixa?</label>
+                <div class="resposta1">
+                    <input type="radio" id="menor_18" name="idade" value="Menos de 18 anos">
+                    <label for="menor_18">Menos de 18 anos</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="entre_18_24" name="idade" value="Entre 18 e 24 anos">
+                    <label for="entre_18_24">Entre 18 e 24 anos</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="entre_25_35" name="idade" value="Entre 25 e 35 anos">
+                    <label for="entre_25_35">Entre 25 e 35 anos</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="entre_36_45" name="idade" value="Entre 36 e 45 anos">
+                    <label for="entre_36_45">Entre 36 e 45 anos</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="entre_46_59" name="idade" value="Entre 46 e 59 anos">
+                    <label for="entre_46_59">Entre 46 e 59 anos</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="maior_60" name="idade" value="60+ anos">
+                    <label for="maior_60">60+ anos</label>
+                </div>
+                <span id="erro-idade" class="erro"></span> <!-- Mensagem de erro -->
+            </div>
+
+            <div class="pergunta">
+                <label for="renda_per_capita">Qual a renda per capita da sua casa?</label>
+                <div class="resposta1">
+                    <input type="radio" id="classe_d_e" name="renda_per_capita" value="Classes D/E: até R$ 2,9 mil">
+                    <label for="classe_d_e">Classes D/E: até R$ 2,9 mil</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="classe_c" name="renda_per_capita" value="Classe C: entre R$ 2,9 mil e R$ 7,1 mil">
+                    <label for="classe_c">Classe C: entre R$ 2,9 mil e R$ 7,1 mil</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="classe_b" name="renda_per_capita" value="Classe B: entre R$ 7,1 mil e R$ 22 mil">
+                    <label for="classe_b">Classe B: entre R$ 7,1 mil e R$ 22 mil</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="classe_a" name="renda_per_capita" value="Classe A: superior a R$ 22 mil">
+                    <label for="classe_a">Classe A: superior a R$ 22 mil</label>
+                </div>
+                <span id="erro-renda" class="erro"></span> <!-- Mensagem de erro -->
+            </div>
+
+            <div class="pergunta">
+                <label for="tempo_interesse">Há quanto tempo você se interessa por arte?</label>
+                <div class="resposta1">
+                    <input type="radio" id="iniciando" name="tempo_interesse" value="Estou iniciando agora">
+                    <label for="iniciando">Estou iniciando agora</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="menos_2_anos" name="tempo_interesse" value="Menos de 2 anos">
+                    <label for="menos_2_anos">Menos de 2 anos</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="de_2_a_4" name="tempo_interesse" value="De 2 a 4 anos">
+                    <label for="de_2_a_4">De 2 a 4 anos</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="de_5_a_9" name="tempo_interesse" value="De 5 a 9 anos">
+                    <label for="de_5_a_9">De 5 a 9 anos</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="mais_10_anos" name="tempo_interesse" value="Há mais de 10 anos">
+                    <label for="mais_10_anos">Há mais de 10 anos</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="sem_interesse" name="tempo_interesse" value="Não me interesso">
+                    <label for="sem_interesse">Não me interesso</label>
+                </div>
+                <span id="erro-tempo-interesse" class="erro"></span>
+            </div>
+            <div class="button-container">
+                <button type="submit" form="form" class="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+  
+
+</body>
+</html>

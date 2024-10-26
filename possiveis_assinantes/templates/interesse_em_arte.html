@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leontis - Pesquisa de usuário</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/script1.js" defer></script>
+</head>
+<body>
+    <div class="form-container">
+        <div class="img">
+            <img src="../static/img/Group 39 (1).png" alt="Imagem do App Leontis">
+        </div>
+        <form id="form" action="/submit" method="post">
+            <div class="pergunta">
+                <label for="arte_interesse">Qual das opções de arte abaixo você mais gosta?</label>
+                <div class="resposta1">
+                    <input type="radio" id="fotografia" name="arte_interesse" value="Fotografia">
+                    <label for="fotografia">Fotografia</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="escultura" name="arte_interesse" value="Escultura">
+                    <label for="escultura">Escultura</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="pintura" name="arte_interesse" value="Pintura">
+                    <label for="pintura">Pintura</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="arte_rua" name="arte_interesse" value="Arte de rua/grafite">
+                    <label for="arte_rua">Arte de rua/grafite</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="arte_digital" name="arte_interesse" value="Arte digital">
+                    <label for="arte_digital">Arte digital</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="arquitetura" name="arte_interesse" value="Arquitetura e Urbanismo">
+                    <label for="arquitetura">Arquitetura e Urbanismo</label>
+                </div>
+                <span id="erro-arte-interesse" class="erro"></span> <!-- Mensagem de erro -->
+            </div>
+
+            <div class="pergunta">
+                <label for="frequencia_museus">Com que frequência você vai aos museus?</label>
+                <div class="resposta1">
+                    <input type="radio" id="raramente" name="frequencia_museus" value="Raramente (uma vez ao ano)">
+                    <label for="raramente">Raramente (uma vez ao ano)</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="ocasionalmente" name="frequencia_museus" value="Ocasionalmente (máximo três vezes ao ano)">
+                    <label for="ocasionalmente">Ocasionalmente (máximo três vezes ao ano)</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="frequentemente" name="frequencia_museus" value="Frequentemente (máximo cinco vezes ao ano)">
+                    <label for="frequentemente">Frequentemente (máximo cinco vezes ao ano)</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="muito_frequentemente" name="frequencia_museus" value="Muito frequentemente (mais de cinco vezes ao ano)">
+                    <label for="muito_frequentemente">Muito frequentemente (mais de cinco vezes ao ano)</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="nunca" name="frequencia_museus" value="Nunca">
+                    <label for="nunca">Nunca</label>
+                </div>
+                <span id="erro-frequencia-museu" class="erro"></span> <!-- Mensagem de erro -->
+            </div>
+
+            <div class="pergunta">
+                <label for="curso_arte">Você já participou de algum curso ou atividade relacionada à arte?</label>
+                <div class="resposta1">
+                    <input type="radio" id="nao_curso" name="curso_arte" value="Não">
+                    <label for="nao_curso">Não</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="sim_curso" name="curso_arte" value="Sim">
+                    <label for="sim_curso">Sim</label>
+                </div>
+                <span id="erro-curso-arte" class="erro"></span> <!-- Mensagem de erro -->
+            </div>
+
+            <div class="pergunta">
+                <label for="segue_artistas">Você segue artistas ou páginas relacionadas à arte nas redes sociais?</label>
+                <div class="resposta1">
+                    <input type="radio" id="sim_segue" name="segue_artistas" value="Sim">
+                    <label for="sim_segue">Sim</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="nao_segue" name="segue_artistas" value="Não">
+                    <label for="nao_segue">Não</label>
+                </div>
+                <span id="erro-segue-artista" class="erro"></span> <!-- Mensagem de erro -->
+            </div>
+
+            <div class="pergunta">
+                <label for="experiencia_museu">Como é sua experiência ao visitar um museu normalmente? Caso nunca tenha visitado, selecione a que você acredita que seguiria.</label>
+                <div class="resposta1">
+                    <input type="radio" id="sem_guia" name="experiencia_museu" value="Sem um guia/planejamento para ver as obras.">
+                    <label for="sem_guia">Sem um guia/planejamento para ver as obras.</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="planejo_rota" name="experiencia_museu" value="Planejo minha rota antes.">
+                    <label for="planejo_rota">Planejo minha rota antes.</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="planejamento_terceiros" name="experiencia_museu" value="Utilizo o planejamento de terceiros (sites, blogs, páginas em redes sociais que disponibilizam).">
+                    <label for="planejamento_terceiros">Utilizo o planejamento de terceiros (sites, blogs, páginas em redes sociais que disponibilizam).</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="guia_museu" name="experiencia_museu" value="Com um guia do próprio museu.">
+                    <label for="guia_museu">Com um guia do próprio museu.</label>
+                </div>
+                <span id="erro-exeperiencia_museu" class="erro"></span> <!-- Mensagem de erro -->
+            </div>
+
+            <div class="pergunta">
+                <label for="usou_app">Você já usou um aplicativo de um museu ou relacionado à arte?</label>
+                <div class="resposta1">
+                    <input type="radio" id="nao_app" name="usou_app" value="Não">
+                    <label for="nao_app">Não</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="sim_app" name="usou_app" value="Sim">
+                    <label for="sim_app">Sim</label>
+                </div>
+                <span id="erro-usou_app" class="erro"></span> <!-- Mensagem de erro -->
+            </div>
+
+            <div class="pergunta">
+                <label for="atracao_museu">O que mais te atrai em visitar museus ou exposições de arte?</label>
+                <div class="resposta1">
+                    <input type="radio" id="lazer" name="atracao_museu" value="Lazer">
+                    <label for="lazer">Lazer</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="aprendizado" name="atracao_museu" value="Aprendizado">
+                    <label for="aprendizado">Aprendizado</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="inspiracao" name="atracao_museu" value="Inspiração">
+                    <label for="inspiracao">Inspiração</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="nao_visito" name="atracao_museu" value="Não visito">
+                    <label for="nao_visito">Não visito</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="acompanho_alguem" name="atracao_museu" value="Apenas acompanho alguém">
+                    <label for="acompanho_alguem">Apenas acompanho alguém</label>
+                </div>
+                <span id="erro-atracao-museu" class="erro"></span> <!-- Mensagem de erro -->
+            </div>
+
+           
+            <div id="aditional-question" style="display: none;">
+                <div class="pergunta">
+                    <label for="info_obras">Você sente falta de mais informações sobre as obras nos museus?</label>
+                    <div class="resposta1">
+                        <input type="radio" id="sim_falta_info" name="info_obras" value="Sim, sinto falta de mais informações">
+                        <label for="sim_falta_info">Sim, sinto falta de mais informações</label>
+                    </div>
+                    <div class="resposta">
+                        <input type="radio" id="nao_falta_info" name="info_obras" value="Não, acredito que o que tem no museu é o suficiente">
+                        <label for="nao_falta_info">Não, acredito que o que tem no museu é o suficiente</label>
+                    </div>
+                    <span id="erro-info-obras" class="erro"></span> <!-- Mensagem de erro -->
+                </div>
+    
+            </div>
+            <div id="aditional-question1" style="display: none;">
+                <div class="pergunta">
+                    <label for="info_busca">Você procura saber sobre essas informações faltantes?</label>
+                    <div class="resposta1">
+                        <input type="radio" id="sim_procuro" name="info_busca" value="Sim, procuro">
+                        <label for="sim_procuro">Sim, procuro</label>
+                    </div>
+                    <div class="resposta">
+                        <input type="radio" id="nao_procuro" name="info_busca" value="Não, apenas me conformo">
+                        <label for="nao_procuro">Não, apenas me conformo</label>
+                    </div>
+                    <span id="erro-info-busca" class="erro"></span> <!-- Mensagem de erro -->
+                </div>
+
+            </div>
+
+            <div id="aditional-question2" style="display: none;">
+            <div class="pergunta">
+                
+                    <label for="onde_busca">Você procura saber sobre essas informações faltantes?</label>
+                    <div class="resposta1">
+                        <input type="radio" id="sim_procuro" name="onde_busca" value="Busca em navegadores (Google, Yahoo, Edge, Opera, Fox, entre outros)">
+                        <label for="navegadores">Busca em navegadores (Google, Yahoo, Edge, Opera, Fox, entre outros)</label>
+                    </div>
+                    <div class="resposta">
+                        <input type="radio" id="apps" name="onde_busca" value="Aplicativos">
+                        <label for="apps">Aplicativos</label>
+                    </div>
+                <div class="resposta">
+                    <input type="radio" id="ia" name="onde_busca" value="Busca em inteligências artificiais (ChatGPT, Gemini, entre outros)">
+                    <label for="ia">Busca em inteligências artificiais (ChatGPT, Gemini, entre outros)</label>
+                </div>
+                <div class="resposta">
+                <input type="radio" id="redes_sociais" name="onde_busca" value="Redes sociais">
+                    <label for="redes_sociais">Redes sociais</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="blogs_favoritos" name="onde_busca" value="Blogs favoritos">
+                    <label for="blogs_favoritos">Blogs favoritos</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="livros" name="onde_busca" value="Livros">
+                    <label for="livros">Livros</label>
+                </div>
+                <span id="erro-onde-busca" class="erro"></span> <!-- Mensagem de erro -->
+            </div>
+            <div class="pergunta">
+                <label for="acha_informacao">Você encontra o que precisa/esperava ao pesquisar?</label>
+                <div class="resposta1">
+                    <input type="radio" id="sim_acho" name="acha_informacao" value="Sim">
+                    <label for="sim_acho">Sim</label>
+                </div>
+                <div class="resposta">
+                    <input type="radio" id="nao_procuro" name="acha_informacao" value="Não">
+                    <label for="nao_acho">Não</label>
+                </div>
+                <span id="erro-acha-informacao" class="erro"></span> <!-- Mensagem de erro -->
+            </div>
+            </div>
+            <div class="button-container">
+                <button type="submit" form="form" class="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+     
+
+</body>
+</html>

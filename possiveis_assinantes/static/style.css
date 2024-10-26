@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&display=swap");
+
+body {
+  font-family: "Lexend Exa", Arial, sans-serif;
+  background-image: url("../static/img/Padrão - claro.jpg"); /* Defina o caminho correto da imagem */
+  background-color: rgba(245, 224, 212, 1);
+  /* background-size: cover;
+    background-position: center;
+    height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  display: block;
+  background-color: rgb(249, 239, 233);
+  padding: 20px;
+  border: 3px solid #984c4c; /* Bordas douradas */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  text-align: left;
+}
+
+.img {
+  display: flex;
+}
+
+img {
+  height: 10%;
+  width: 80%;
+  margin: auto;
+}
+
+.pergunta {
+  font-size: large;
+  margin: 2%;
+}
+
+.resposta {
+  margin: 0.5%;
+  font-size: medium;
+  opacity: 0.7; /* Aumentando a opacidade para melhor leitura */
+}
+
+.resposta1 {
+  margin: 2.5% 0.5% 0.5% 0.5%;
+  font-size: medium;
+  opacity: 0.7; /* Aumentando a opacidade para melhor leitura */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+}
+
+.radio-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+input[type="radio"] {
+  margin-right: 10px; /* Adiciona um espaço entre o radio button e o label */
+}
+input[type="text"] {
+  border: solid 1px #dfb7a5;
+  background-color: #f5ded4;
+  margin-right: 10px; /* Adiciona um espaço entre o radio button e o label */
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button-container > button {
+  margin: 0;
+}
+
+button {
+  padding: 10px;
+  background-color: #984c4c; /* Cor dourada */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 300px;
+}
+
+button:hover {
+  background-color: #ae5e5e;
+}
+
+.input {
+  margin-bottom: 2% !important;
+}
+
+.titulo {
+  display: flex;
+}
+
+h1 {
+  font-size: small;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1%;
+  color: #ae5e5e;
+  text-decoration: underline;
+}
+
+#forma_buscaI {
+  width: 82%;
+}
+
+#aditional-question {
+  display: none; /* As perguntas começam escondidas */
+}
+
+#aditional-question1 {
+  display: none; /* As perguntas começam escondidas */
+}
+
+@media (max-width: 720px) {
+  .pergunta {
+    font-size: small;
+  }
+  button{
+    width: 200px;
+  }
+  .resposta {
+    font-size: smaller;
+  }
+  .resposta1 {
+    font-size: smaller;
+  }
+}
+
+.erro {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+  font-family: "Lexend Exa", Arial, sans-serif;
+  font-size: medium;
+  margin: 1%;
+}
