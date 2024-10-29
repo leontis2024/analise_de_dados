@@ -132,7 +132,7 @@ h1 {
   .pergunta {
     font-size: small;
   }
-  button{
+  button {
     width: 200px;
   }
   .resposta {
@@ -140,6 +140,9 @@ h1 {
   }
   .resposta1 {
     font-size: smaller;
+  }
+  .erro {
+    font-size: 0.8em !important;
   }
 }
 

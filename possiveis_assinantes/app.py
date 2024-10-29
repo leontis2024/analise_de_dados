@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 from sklearn.metrics import *
 
-with open('possiveis_usuarios.pkl', 'rb') as arquivo:  
+with open(r'C:\Users\leticiapitta-ieg\OneDrive - Instituto Germinare\2 ano\Interdiscipinar\analises e predicoes\analise_de_dados_antigo\possiveis_assinantes\possiveis_usuarios.pkl', 'rb') as arquivo:  
     modelo = pickle.load(arquivo)
 
 app = Flask(__name__)
@@ -13,14 +13,14 @@ app.secret_key = '123leontis#'
 def index():
     return render_template('index.html')
 
-@app.route('/interesse_em_arte', methods = ['POST', 'GET'])
+@app.route('/interesse_em_arte', methods = ['POST'])
 def interesse_em_arte():
-    if request.method == 'POST':
-        session['Em qual faixa etária você se encaixa?'] = request.form.get('idade')
-        session['Qual a renda per capita da sua casa?'] = request.form.get('renda_per_capita')
-        session['Há quanto tempo você se interessa por arte?'] = request.form.get('tempo_interesse')
-        print(f"Idade: {session.get('idade')}, Renda: {session.get('renda')}, Tempo de interesse: {session.get('tempo_interesse')}")
     
+    session['Em qual faixa etária você se encaixa?'] = request.form.get('idade')
+    session['Qual a renda per capita da sua casa?'] = request.form.get('renda_per_capita')
+    session['Há quanto tempo você se interessa por arte?'] = request.form.get('tempo_interesse')
+    print(f"Idade: {session.get('Em qual faixa etária você se encaixa?')}, Renda: {session.get('Qual a renda per capita da sua casa?')}, Tempo de interesse: {session.get('Há quanto tempo você se interessa por arte?')}")
+
     return render_template('interesse_em_arte.html')
 
 @app.route('/não_interesse', methods=['POST'])
@@ -33,7 +33,7 @@ def submit():
         session['Qual das opções de arte abaixo você mais gosta?'] = request.form.get('arte_interesse')
         session['Com que frequência você vai aos museus?'] = request.form.get('frequencia_museus')
         session['Você já participou de algum curso ou atividade relacionada à arte?'] = request.form.get('curso_arte')
-        session['segue_artistas'] = request.form.get('segue_artistas')
+        session['Você segue artístas ou páginas relacionadas à arte nas rede sociais?'] = request.form.get('segue_artistas')
         session['Como é sua experiência ao visitar um museu normalmente? Caso nunca tenha visitado, selecione a que você acredita que seguiria.'] = request.form.get('experiencia_museu')
         session['Você já usou um aplicativo de um museu ou relacionado à arte?'] = request.form.get('usou_app')
         session['O que mais te atrai em visitar museus ou exposições de arte?'] = request.form.get('atracao_museu')
@@ -45,7 +45,7 @@ def submit():
 
         session['Usaria o aplicativo?'] = 'Sim'
 
-        dados = pd.DataFrame(session, index=range(len(session.values())))
+        dados = pd.DataFrame(session, index=[0])
 
         dados.fillna({'Qual das opções de arte abaixo você mais gosta?': 'Não se interessa por arte', 'Com que frequência você vai aos museus?': 'Não se interessa por arte', 'Você já participou de algum curso ou atividade relacionada à arte?': 'Não se interessa por arte', 'Você segue artístas ou páginas relacionadas à arte nas rede sociais?': 'Não se interessa por arte', 'Como é sua experiência ao visitar um museu normalmente? Caso nunca tenha visitado, selecione a que você acredita que seguiria.': 'Não se interessa por arte', 'Você já usou um aplicativo de um museu ou relacionado à arte?': 'Não se interessa por arte', 'O que mais te atrai em visitar museus ou exposições de arte?': 'Não se interessa por arte'}, inplace=True)
         dados.fillna({'Você sente falta de mais informações sobre as obras nos museus?': 'Não vai a museus'}, inplace=True)
@@ -94,9 +94,9 @@ def submit():
         'Blogs favoritos': 5,
         'Livros': 6}}
 
-        print(dados.isna().sum())
+        print(dados.columns)
 
-        df_x, df_y = dados.drop(columns=['Usaria o aplicativo?']), dados['Usaria o aplicativo?']
+        df_x = dados.drop(columns=['Usaria o aplicativo?'])
 
         for i in df_x:
             if df_x[i].dtype == object:
@@ -105,17 +105,25 @@ def submit():
                 else:
                     df_x[i] = df_x[i].map(mapeamento_geral[i])
 
-        mapeamento_usaria_app = {'Sim': 1, 'Não': 0}
-        df_y = df_y.map(mapeamento_usaria_app)
-
-        print(df_x)
+        df_x = df_x[['Em qual faixa etária você se encaixa?',
+       'Qual a renda per capita da sua casa?',
+       'Há quanto tempo você se interessa por arte?',
+       'Qual das opções de arte abaixo você mais gosta?',
+       'Com que frequência você vai aos museus?',
+       'Você já participou de algum curso ou atividade relacionada à arte?',
+       'Você segue artístas ou páginas relacionadas à arte nas rede sociais?',
+       'Como é sua experiência ao visitar um museu normalmente? Caso nunca tenha visitado, selecione a que você acredita que seguiria.',
+       'Você já usou um aplicativo de um museu ou relacionado à arte?',
+       'O que mais te atrai em visitar museus ou exposições de arte?',
+       'Você sente falta de mais informações sobre as obras nos museus?',
+       'Você procura saber sobre essas informações faltantes?',
+       'De que forma você costuma buscar essas informações?',
+       'Você encontra o que precisa/esperava ao pesquisar?']]
 
         predict = modelo.predict(df_x)
+        mapeamento_usaria_app = {'Sim': 1, 'Não': 0}
+        predict = predict.map(mapeamento_usaria_app)
         print("Predict: ", predict)
-        print("Verdadeiro: ", df_y)
-        print(accuracy_score(df_y, predict))
-        print(precision_score(df_y, predict, pos_label=1))
-        print(classification_report(df_y, predict))
         
     return render_template('formulario_enviado.html')
 
