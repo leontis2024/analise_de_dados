@@ -1,3 +1,4 @@
+localStorage.setItem("terminou", null);
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form");
 
@@ -112,7 +113,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (valid) {
-      console.log("foi");
+      if (form.getAttribute("action") == "/submit") {
+        localStorage.setItem("terminou", true);
+      } else {
+        localStorage.setItem("terminou", false);
+      }
       form.submit();
     }
   });

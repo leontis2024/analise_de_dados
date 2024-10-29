@@ -1,3 +1,5 @@
+localStorage.setItem("terminou", null);
+
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("form");
   const errorMessages = {
@@ -42,7 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
       rendaError.textContent = "";
     }
 
-    console.log(tempoInteresse);
 
     // Valida tempo de interesse e decide o redirecionamento
     if (!tempoInteresse) {
@@ -61,7 +62,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (isValid) {
+      if(form.getAttribute("action")=="/submit"){
+        localStorage.setItem("terminou",true)
+      }else{
+        localStorage.setItem("terminou",false)
+      }
       form.submit();
+
     }
   });
 });
