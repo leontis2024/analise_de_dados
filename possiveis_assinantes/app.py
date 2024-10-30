@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 from sklearn.metrics import *
 
-with open(r'possiveis_usuarios.pkl', 'rb') as arquivo:  
+with open(r'C:\Users\leticiapitta-ieg\OneDrive - Instituto Germinare\2 ano\Interdiscipinar\analises e predicoes\analise_de_dados_antigo\possiveis_assinantes\possiveis_usuarios.pkl', 'rb') as arquivo:  
     modelo = pickle.load(arquivo)
 
 app = Flask(__name__)
@@ -119,10 +119,13 @@ def submit():
        'Você procura saber sobre essas informações faltantes?',
        'De que forma você costuma buscar essas informações?',
        'Você encontra o que precisa/esperava ao pesquisar?']]
+        
+        df_x = modelo['StandardScaler'].transform(df_x)
+        df_x = modelo['PCA'].transform(df_x)
 
-        predict = modelo.predict(df_x)
-        mapeamento_usaria_app = {True: 1, False: 0}
-        predict = predict.map(mapeamento_usaria_app)
+        predict = modelo['Algoritmo'].predict(df_x)
+        print("Predict: ", predict)
+        predict = bool((predict == True)[0])
         print("Predict: ", predict)
         
     return render_template('formulario_enviado.html',predicao=predict)
