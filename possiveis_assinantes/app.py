@@ -25,7 +25,7 @@ def interesse_em_arte():
 
 @app.route('/não_interesse', methods=['POST'])
 def não_interesse():
-    return render_template('não_interesse.html')
+    return render_template('nao_interesse.html')
 
 @app.route('/submit', methods=['POST', 'GET'])
 def submit():
