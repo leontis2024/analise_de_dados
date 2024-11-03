@@ -32,11 +32,9 @@ def submit():
         session['Você já participou de algum curso ou atividade relacionada à arte?'] = request.form.get('curso_arte')
         session['Você segue artístas ou páginas relacionadas à arte nas rede sociais?'] = request.form.get('segue_artistas')
         session['Como é sua experiência ao visitar um museu normalmente? Caso nunca tenha visitado, selecione a que você acredita que seguiria.'] = request.form.get('experiencia_museu')
-        # session['Você já usou um aplicativo de um museu ou relacionado à arte?'] = request.form.get('usou_app')
         session['O que mais te atrai em visitar museus ou exposições de arte?'] = request.form.get('atracao_museu')
         session['Você sente falta de mais informações sobre as obras nos museus?'] = request.form.get('info_obras')
         session['Você procura saber sobre essas informações faltantes?'] = request.form.get('info_busca')
-        # session['De que forma você costuma buscar essas informações?'] = request.form.get('onde_busca')
         session['Você encontra o que precisa/esperava ao pesquisar?'] = request.form.get('acha_informacao')
         print(f"{session.get('arte_interesse')}")
 
