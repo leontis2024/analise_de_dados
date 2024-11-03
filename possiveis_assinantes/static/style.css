@@ -161,19 +161,18 @@ h1 {
   justify-content: center;
   height: 100vh;
   margin: 0;
-  background-color: #F8EDEB;
+  background-color: rgb(249, 239, 233);
   background-size: contain;
 }
 
 /* Caixa de confirmação */
 .mensagem {
-  background-color: #FFF6F4;
+  background-color: rgb(249, 239, 233);
   padding: 40px;
   border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 600px;
   text-align: center;
-  font-family: 'Arial', sans-serif;
   color: #984c4c;
   border: 2px solid #ae5e5e;
 }

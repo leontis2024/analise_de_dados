@@ -19,18 +19,15 @@ def interesse_em_arte():
     session['Em qual faixa etária você se encaixa?'] = request.form.get('idade')
     session['Qual a renda per capita da sua casa?'] = request.form.get('renda_per_capita')
     session['Há quanto tempo você se interessa por arte?'] = request.form.get('tempo_interesse')
-    print(f"Idade: {session.get('Em qual faixa etária você se encaixa?')}, Renda: {session.get('Qual a renda per capita da sua casa?')}, Tempo de interesse: {session.get('Há quanto tempo você se interessa por arte?')}")
 
     return render_template('interesse_em_arte.html')
-
-@app.route('/não_interesse', methods=['POST'])
-def não_interesse():
-    return render_template('nao_interesse.html')
 
 @app.route('/submit', methods=['POST', 'GET'])
 def submit():
     if request.method == 'POST':
         session['Qual das opções de arte abaixo você mais gosta?'] = request.form.get('arte_interesse')
+        if session.get('Qual das opções de arte abaixo você mais gosta?') == None:
+            return render_template('formulario_enviado.html', predicao=False)
         session['Com que frequência você vai aos museus?'] = request.form.get('frequencia_museus')
         session['Você já participou de algum curso ou atividade relacionada à arte?'] = request.form.get('curso_arte')
         session['Você segue artístas ou páginas relacionadas à arte nas rede sociais?'] = request.form.get('segue_artistas')
@@ -63,11 +60,10 @@ def submit():
         dados = modelo['PCA'].transform(dados)
 
         predict = modelo['modelo'].predict(dados)
-        print("Predict: ", predict)
         predict = bool((predict == True)[0])
-        print("Predict: ", predict)
         
     return render_template('formulario_enviado.html',predicao=predict)
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
