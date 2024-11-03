@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 from sklearn.metrics import *
 
-with open(r'./possiveis_assinantes/possiveis_assinantes.pkl', 'rb') as arquivo:  
+with open(r'possiveis_assinantes/possiveis_assinantes.pkl', 'rb') as arquivo:  
     modelo = pickle.load(arquivo)
 
 app = Flask(__name__)
@@ -77,4 +77,4 @@ def submit():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5000, host='0.0.0.0')
