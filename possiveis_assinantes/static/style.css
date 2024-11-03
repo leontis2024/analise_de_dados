@@ -3,7 +3,7 @@
 
 body {
   font-family: "Lexend Exa", Arial, sans-serif;
-  background-image: url("../static/img/Padrão - claro.jpg"); /* Defina o caminho correto da imagem */
+  background-image: url("../static/img/Padrão - claro.jpg");
   background-color: rgba(245, 224, 212, 1);
   /* background-size: cover;
     background-position: center;
@@ -153,4 +153,41 @@ h1 {
   font-family: "Lexend Exa", Arial, sans-serif;
   font-size: medium;
   margin: 1%;
+}
+
+.enviado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: rgb(249, 239, 233);
+  background-size: contain;
+}
+
+/* Caixa de confirmação */
+.mensagem {
+  background-color: rgb(249, 239, 233);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  text-align: center;
+  color: #984c4c;
+  border: 2px solid #ae5e5e;
+}
+
+/* Texto de agradecimento */
+.mensagem h1 {
+  font-size: 2em;
+  color: #984c4c;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Parágrafo */
+.mensagem p {
+  font-size: 1.2em;
+  margin: 15px 0;
 }
