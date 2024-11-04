@@ -129,6 +129,20 @@ h1 {
 }
 
 @media (max-width: 720px) {
+  .mensagem {
+    width: 400px;
+  }
+
+  .mensagem h1 {
+    font-size: 1.5em;
+  }
+
+  /* Parágrafo */
+  .mensagem p {
+    font-size: 1em;
+    margin: 15px 0;
+  }
+
   .pergunta {
     font-size: small;
   }
