@@ -1,6 +1,10 @@
 import psycopg2
 import pandas as pd
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
+import os
+load_dotenv()
+
 
 def log_sync(conn, tabela, id_registro, operacao):
     try:
@@ -95,19 +99,19 @@ def sync_table(orig_conn, dest_conn, tabela, colunas_origem, colunas_destino, pk
 def run_rpa():
     try:
         conn1 = psycopg2.connect(
-            host="pg-2aed5b20-leontis2024-c492.l.aivencloud.com",
-            database="dbLeontisPrimeiroAno",  
-            user="avnadmin",
-            port="23599",
-            password="AVNS_I9sw4r5PMHAOdaMY_Yz"
+            host=os.getenv('HOST'),
+            database=os.getenv('DB1'),  
+            user=os.getenv('USER'),
+            port=os.getenv('PORT'),
+            password=os.getenv('PASSWORD')
         )
 
         conn2 = psycopg2.connect(
-            host="pg-2aed5b20-leontis2024-c492.l.aivencloud.com",
-            database="dbleontis",
-            user="avnadmin",
-            port="23599",
-            password="AVNS_I9sw4r5PMHAOdaMY_Yz"
+            host=os.getenv('HOST'),
+            database=os.getenv('DB2'),  
+            user=os.getenv('USER'),
+            port=os.getenv('PORT'),
+            password=os.getenv('PASSWORD')
         )
 
         tabelas_segundo_para_primeiro1 = {
