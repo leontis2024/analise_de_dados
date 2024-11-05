@@ -100,19 +100,11 @@ def sync_museu_with_address(orig_conn, dest_conn, operation):
 def run_rpa():
     try:
         conn1 = psycopg2.connect(
-<<<<<<< HEAD
             host=os.getenv('HOST'),
             database=os.getenv('DB1'),  
             user=os.getenv('USER'),
             port=os.getenv('PORT'),
             password=os.getenv('PASSWORD')
-=======
-            host="pg-2aed5b20-leontis2024-c492.l.aivencloud.com",
-            database="dbLeontisPrimeiroAno",
-            user="avnadmin",
-            port="23599",
-            password="AVNS_I9sw4r5PMHAOdaMY_Yz"
->>>>>>> 37687adb8d3d19f145845048c0e0553cd51febc1
         )
 
         conn2 = psycopg2.connect(
