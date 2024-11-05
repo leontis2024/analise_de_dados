@@ -5,9 +5,7 @@ body {
   font-family: "Lexend Exa", Arial, sans-serif;
   background-image: url("../static/img/Padrão - claro.jpg");
   background-color: rgba(245, 224, 212, 1);
-  /* background-size: cover;
-    background-position: center;
-    height: 100vh; */
+ 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -137,7 +135,6 @@ h1 {
     font-size: 1.5em;
   }
 
-  /* Parágrafo */
   .mensagem p {
     font-size: 1em;
     margin: 15px 0;
@@ -176,7 +173,6 @@ h1 {
   height: 100vh;
   margin: 0;
   background-color: rgb(249, 239, 233);
-  background-size: contain;
 }
 
 /* Caixa de confirmação */
