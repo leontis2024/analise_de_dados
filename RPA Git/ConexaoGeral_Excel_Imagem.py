@@ -95,19 +95,19 @@ def sync_table(orig_conn, dest_conn, tabela, colunas_origem, colunas_destino, pk
 def run_rpa():
     try:
         conn1 = psycopg2.connect(
-            host=${{secrets.HOST}},
-            database=${{secrets.NM_DB1}},  
-            user=${{secrets.USER}},
-            port=${{secrets.PORT}},
-            password=${{secrets.PASSWORD}}
+            host="pg-2aed5b20-leontis2024-c492.l.aivencloud.com",
+            database="dbLeontisPrimeiroAno",
+            user="avnadmin",
+            port="23599",
+            password="AVNS_I9sw4r5PMHAOdaMY_Yz"
         )
 
         conn2 = psycopg2.connect(
-            host=${{secrets.HOST}},
-            database=${{secrets.NM_DB2}},  
-            user=${{secrets.USER}},
-            port=${{secrets.PORT}},
-            password=${{secrets.PASSWORD}}
+            host="pg-2aed5b20-leontis2024-c492.l.aivencloud.com",
+            database="dbleontis",
+            user="avnadmin",
+            port="23599",
+            password="AVNS_I9sw4r5PMHAOdaMY_Yz"
         )
 
         tabelas_segundo_para_primeiro1 = {
