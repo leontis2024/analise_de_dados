@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leontis - Pesquisa de usuário</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="shortcut icon" href="../static/img/logo.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="../static/img/logo.png"
+      type="image/x-icon"
+    />
+  </head>
+  <body class="enviado">
+    <script>
+      const predicao = "{{ predicao }}";
+      if (predicao) {
+        localStorage.setItem("predicao", predicao);
+      }
+    </script>
+    <div class="mensagem">
+      <h1>Obrigado pelo envio!</h1>
+      <p>Recebemos sua resposta com sucesso e estamos felizes por sua participação.</p>
+  </div>
+  </body>
+</html>
