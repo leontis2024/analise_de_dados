@@ -95,19 +95,19 @@ def sync_museu_with_address(orig_conn, dest_conn, operation):
 def run_rpa():
     try:
         conn1 = psycopg2.connect(
-            host="pg-2aed5b20-leontis2024-c492.l.aivencloud.com",
-            database="dbLeontisPrimeiroAno",  
-            user="avnadmin",
-            port="23599",
-            password="AVNS_I9sw4r5PMHAOdaMY_Yz"
+            host=${{secrets.HOST}},
+            database=${{secrets.NM_DB1}},  
+            user=${{secrets.USER}},
+            port=${{secrets.PORT}},
+            password=${{secrets.PASSWORD}}
         )
 
         conn2 = psycopg2.connect(
-            host="pg-2aed5b20-leontis2024-c492.l.aivencloud.com",
-            database="dbleontis",
-            user="avnadmin",
-            port="23599",
-            password="AVNS_I9sw4r5PMHAOdaMY_Yz"
+            host=${{secrets.HOST}},
+            database=${{secrets.NM_DB2}},  
+            user=${{secrets.USER}},
+            port=${{secrets.PORT}},
+            password=${{secrets.PASSWORD}}
         )
 
         tabelas_primeiro_para_segundo = {
