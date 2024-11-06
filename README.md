@@ -25,11 +25,12 @@ O repositório está organizado nas seguintes pastas e arquivos principais:
 - **Scikit-Learn**: Para criação de modelos inteligentes de predição.
 - **Flask**: Para pegar os dados enviados pelo forms, tratar e realizar a predição
 
-## Objetivos da Análise
+## Objetivos
 
 1. **Predição de usuários**: Dizer se uma pessoa é ou não um possível usuário.
 2. **Predição de assinantes**: Dizer se um usuário é ou não um assinante em potencial.
 3. **Análise exploratória sobre museus**: Identificar insights e informações sobre museus nacionais, afim de fazer possíveis atualizações e mudanças no app.
+4. **RPA**: Transportar as informações entre os bancos do Primeiro Ano e do Segundo Ano.
 
 ## Como Executar as Análises
 
