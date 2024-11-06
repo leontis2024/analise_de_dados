@@ -21,9 +21,11 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f Requirements-RPA.txt ]; then pip install -r Requirements-RPA.txt; fi
 
+
     - name: Deploy no EC2 -AWS
       run: |
             echo "Conectando no EC2"
             echo "${{secrets.CHAVE_RPA}}" > private_key && chmod 600 private_key
-            ssh -o StrictHostKeyChecking=no -i private_key "${{secrets.HOST}} " 
-            cd analise_de_dados/;git pull;"
+            ssh -o StrictHostKeyChecking=no -i private_key "${{secrets.CHAVE_RPA}}""
+                   cd analise_de_dados/;git pull;"
+            
