@@ -26,6 +26,6 @@ jobs:
         echo "Conectando no EC2"
         echo "${{secrets.CHAVE_RPA}}" > private_key && chmod 600 private_key
         ssh -o StrictHostKeyChecking=no -o ConnectTimeout=60 -i private_key "${{secrets.HOST}}" << EOF
-          cd "analise_de_dados/RPA Git/"
+          cd "~/analise_de_dados/RPA\ Git/"
           git pull
         EOF
