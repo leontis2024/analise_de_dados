@@ -1,0 +1,45 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: PipelineFlask
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f Requirements.txt ]; then pip install -r Requirements.txt; fi
+    
+
+    - name: Render Deploy Action
+      uses: johnbeynon/render-deploy-action@v0.0.8
+      with:
+        service-id: srv-cslb3d1u0jms73f4414g
+        api-key: rnd_8utJo8vkSxnDhr0pWql3mhbNGZbK
+
+
+    - name: Deploy no EC2 -AWS
+      run: |
+            echo "Conectando no EC2"
+            echo "${{ secrets.AWS }}" > private_key && chmod 600 private_key
+            ssh -o StrictHostKeyChecking=no -i private_key ubuntu@ec2-34-200-118-26.compute-1.amazonaws.com << 'EOF'
+              cd analise_de_dados/
+              git pull
+              ./executar.sh
+            EOF
