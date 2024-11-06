@@ -27,5 +27,5 @@ jobs:
             echo "Conectando no EC2"
             echo "${{secrets.CHAVE_RPA}}" > private_key && chmod 600 private_key
             ssh -o StrictHostKeyChecking=no -i private_key "${{secrets.HOST}}" "
-                   cd analise_de_dados/RPA\ Git;git pull;./executa1.sh"
+                   cd analise_de_dados/RPA\ Git;git pull;"
             
