@@ -32,10 +32,14 @@ jobs:
       with:
         service-id: srv-cslb3d1u0jms73f4414g
         api-key: rnd_8utJo8vkSxnDhr0pWql3mhbNGZbK
-          
+
+
     - name: Deploy no EC2 -AWS
       run: |
             echo "Conectando no EC2"
-            echo "${{secrets.AWS}}" > private_key && chmod 600 private_key
-            ssh -o StrictHostKeyChecking=no -i private_key ubuntu@ec2-34-200-118-26.compute-1.amazonaws.com
-                  cd analise_de_dados/;git pull;./executar.sh"
+            echo "${{ secrets.AWS }}" > private_key && chmod 600 private_key
+            ssh -o StrictHostKeyChecking=no -i private_key ubuntu@ec2-34-200-118-26.compute-1.amazonaws.com << 'EOF'
+              cd analise_de_dados/
+              git pull
+              ./executar.sh
+            EOF
