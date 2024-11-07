@@ -2,7 +2,7 @@ name: PipelineRPA2
 
 on:
   push:
-    branches: [ "dev" ]
+    branches: [ "main" ]
 
 
 jobs:
