@@ -101,7 +101,7 @@ def run_rpa():
         conn1 = psycopg2.connect(
             host=os.getenv('HOST'),
             database=os.getenv('DB1'),  
-            user=os.getenv('USER'),
+            user=os.getenv('NAME_USER'),
             port=os.getenv('PORT'),
             password=os.getenv('PASSWORD')
         )
@@ -109,7 +109,7 @@ def run_rpa():
         conn2 = psycopg2.connect(
             host=os.getenv('HOST'),
             database=os.getenv('DB2'),  
-            user=os.getenv('USER'),
+            user=os.getenv('NAME_USER'),
             port=os.getenv('PORT'),
             password=os.getenv('PASSWORD')
         )
